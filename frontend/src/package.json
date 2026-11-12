@@ -1,0 +1,29 @@
+{
+  "name": "cuppa-frontend",
+  "version": "1.0.0",
+  "description": "Cuppa — Coffee Brew Log & Tasting Board (frontend)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "author": "Sree Rachnae Shyam, Sai Venkatesh Varun Muruganandam Murali Krishnan",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "prop-types": "^15.8.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.0",
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3"
+  }
+}
