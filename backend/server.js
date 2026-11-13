@@ -1,5 +1,7 @@
 import express from "express";
 import session from "express-session";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import MongoStore from "connect-mongo";
 import passport from "./auth/passportConfig.js";
 import authRouter from "./routes/auth.js";
@@ -30,7 +32,8 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
-app.use(express.static("../frontend/dist"));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 app.listen(PORT, () => {
   console.log(`Cuppa server running on port ${PORT}`);
