@@ -26,6 +26,10 @@ router.get("/", async (req, res) => {
     const brews = await findBrewsByUser(req.user._id.toString(), { method, start, end });
     res.json(brews);
   } catch (_err) {
+    // REVIEW: the error is discarded here, so a failed query leaves nothing in the
+    // Render logs. Log it (console.error(err)) before responding. Since Express 5
+    // forwards rejected async handlers to the error middleware, a single central
+    // error handler could replace these repeated try/catch blocks in all routes.
     res.status(500).json({ errors: ["Could not load brews."] });
   }
 });

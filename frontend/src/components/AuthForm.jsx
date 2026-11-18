@@ -56,54 +56,54 @@ export default function AuthForm({ mode, onSubmit }) {
       <form className="auth-form" onSubmit={handleSubmit}>
         <h1>{mode === "login" ? "Log in" : "Create an account"}</h1>
 
-      <label htmlFor="username">Username</label>
-      <div className="auth-form__input-wrap">
-        <span className="auth-form__input-icon">
-          <UserIcon />
-        </span>
-        <input
-          id="username"
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div>
+        <label htmlFor="username">Username</label>
+        <div className="auth-form__input-wrap">
+          <span className="auth-form__input-icon">
+            <UserIcon />
+          </span>
+          <input
+            id="username"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
 
-      <label htmlFor="password">Password</label>
-      <div className="auth-form__input-wrap">
-        <span className="auth-form__input-icon">
-          <LockIcon />
-        </span>
-        <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          minLength={6}
-        />
-      </div>
+        <label htmlFor="password">Password</label>
+        <div className="auth-form__input-wrap">
+          <span className="auth-form__input-icon">
+            <LockIcon />
+          </span>
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength={6}
+          />
+        </div>
 
-      {error && (
-        <p className="auth-form__error" role="status">
-          {error}
-        </p>
-      )}
-
-      <button type="submit">{mode === "login" ? "Log in" : "Register"}</button>
-
-      <p className="auth-form__switch">
-        {mode === "login" ? (
-          <>
-            New to Cuppa? <Link to="/register">Register</Link>
-          </>
-        ) : (
-          <>
-            Already have an account? <Link to="/login">Log in</Link>
-          </>
+        {error && (
+          <p className="auth-form__error" role="status">
+            {error}
+          </p>
         )}
-      </p>
+
+        <button type="submit">{mode === "login" ? "Log in" : "Register"}</button>
+
+        <p className="auth-form__switch">
+          {mode === "login" ? (
+            <>
+              New to Cuppa? <Link to="/register">Register</Link>
+            </>
+          ) : (
+            <>
+              Already have an account? <Link to="/login">Log in</Link>
+            </>
+          )}
+        </p>
       </form>
     </div>
   );

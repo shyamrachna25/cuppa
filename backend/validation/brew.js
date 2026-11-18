@@ -19,6 +19,12 @@ export function validateBrew(data) {
     errors.push("A valid date is required.");
   }
 
+  // REVIEW: ratio, grindSize, brewTime and waterTemp are never validated, so values like
+  // waterTemp 500, ratio "133" or any free text in grindSize are saved. Consider checking
+  // waterTemp is a number in a sane range, ratio matches /^\d+(\.\d+)?:\d+(\.\d+)?$/
+  // (e.g. 1:16), brewTime matches m:ss, and grindSize is one of a fixed list (the seed
+  // script already uses Coarse ... Fine). Rating could also be required to be an integer.
+  // The form's "Water temp (°)" label also doesn't say whether it is °F or °C.
   return errors;
 }
 

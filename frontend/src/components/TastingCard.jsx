@@ -24,6 +24,9 @@ export default function TastingCard({ tasting, average, isOwner, onEdit, onDelet
       </div>
 
       <div className="tasting-card__side">
+        {/* REVIEW: Love this. Coffee cups instead of generic stars are a creative touch
+            that fits the theme, and showing the average and review count right next to
+            the cups makes each review easy to judge at a glance. */}
         <CupRating rating={tasting.rating} />
         {average && (
           <p className="tasting-card__average">

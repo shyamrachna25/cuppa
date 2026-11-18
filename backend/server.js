@@ -19,6 +19,10 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    // REVIEW: only maxAge is set. For production consider secure: true (HTTPS only)
+    // and sameSite: "lax" to reduce CSRF risk. On Render the app sits behind a
+    // proxy, so secure cookies also need app.set("trust proxy", 1) before the
+    // session middleware, otherwise the cookie is never sent.
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 },
   }),
 );

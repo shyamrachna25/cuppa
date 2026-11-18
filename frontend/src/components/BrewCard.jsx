@@ -48,6 +48,10 @@ export default function BrewCard({ brew, onEdit, onDelete }) {
 
         {brew.notes && <p className="brew-card__notes">{brew.notes}</p>}
 
+        {/* REVIEW: brew.date is a date-only string ("2026-11-18"), which new Date() reads as
+            UTC midnight. In US time zones that is the previous evening, so a brew logged today
+            shows "22 hours ago". Show the date itself (or Today/Yesterday/N days ago), and parse
+            it as a local date, e.g. new Date(year, month - 1, day). */}
         <p className="brew-card__date">{formatRelativeTime(brew.date)}</p>
       </div>
 

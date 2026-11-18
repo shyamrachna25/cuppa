@@ -55,6 +55,10 @@ export default function BrewForm({ initial, onSave, onCancel }) {
       <input id="origin" value={form.origin} onChange={(e) => update("origin", e.target.value)} />
 
       <label htmlFor="method">Method</label>
+      {/* REVIEW: Nice touch having several brew methods, each with its own color, plus an
+          "Other" option for anything not listed. One idea: when "Other" is selected, show an
+          extra text input (e.g. customMethod) so the specific method isn't lost. It could
+          be saved with the brew and shown on the card instead of just "Other". */}
       <select id="method" value={form.method} onChange={(e) => update("method", e.target.value)}>
         {METHODS.map((m) => (
           <option key={m} value={m}>
